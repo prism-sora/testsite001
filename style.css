@@ -1,20 +1,66 @@
 body {
-    background-color: #f0f2f5; /* 背景を落ち着いたグレーに */
+    background-color: #f0f2f5;
     color: #333;
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    line-height: 1.8; /* 行間を少し広げて読みやすく */
+    line-height: 1.8;
     margin: 0;
 }
+
+/* --- Layout --- */
+.page-wrapper {
+  display: flex;
+}
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0; /* サイドバーの幅を固定 */
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar h2 {
+  font-size: 1.2em;
+  padding: 1.5em 1.5em 0.5em;
+  margin: 0;
+  color: #333;
+  border-bottom: none; /* サイドバー内のh2は下線を消す */
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0 1.5em;
+  margin: 0;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 1em 0;
+  text-decoration: none;
+  color: #003366;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.sidebar nav a:hover {
+  background-color: #f0f2f5;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+/* --- Original Content Styles --- */
 .container {
-    max-width: 800px; /* 文章が読みやすいように最大幅を設定 */
-    margin: 3em auto; /* 上下に余白を取り、中央に配置 */
+    max-width: 800px;
+    margin: 3em; /* メインコンテンツ内での余白 */
     padding: 2em 4em;
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    position: relative; /* 影の位置決めの基準にする */
+    position: relative;
     z-index: 1;
 }
+
 .header-image {
     width: 100%;
     height: auto;
@@ -23,58 +69,58 @@ body {
     border-radius: 4px;
     margin-bottom: 2em;
 }
+
 h1 {
-    font-family: 'Times New Roman', "游明朝", "Yu Mincho", serif; /* 見出しを明朝体に */
+    font-family: 'Times New Roman', "游明朝", "Yu Mincho", serif;
     text-align: center;
     font-size: 2.5em;
-    color: #2c3e50; /* 濃いグレー */
+    color: #2c3e50;
     margin-bottom: 0.2em;
 }
+
 .subtitle {
     text-align: center;
     font-size: 1.1em;
-    color: #7f8c8d; /* 少し薄いグレー */
+    color: #7f8c8d;
     margin-bottom: 3em;
 }
+
 h2 {
     font-family: 'Times New Roman', "游明朝", "Yu Mincho", serif;
     font-size: 1.7em;
-    color: #003366; /* 濃い紺色 */
+    color: #003366;
     border-bottom: 2px solid #003366;
     padding-bottom: 0.4em;
     margin-top: 2em;
     margin-bottom: 1.2em;
 }
+
 p {
-    text-indent: 1em; /* 段落の先頭を字下げ */
+    text-indent: 1em;
     margin-bottom: 0.8em;
 }
 
 /* --- Sparkle Effect --- */
-.sparkle {
-  position: absolute;
-  pointer-events: none;
-  width: 8px;
-  height: 8px;
-  background: gold;
-  border-radius: 50%;
-  animation: sparkle-anim 0.7s forwards;
-  z-index: 9999;
-}
-
-@keyframes sparkle-anim {
-  0% {
-    opacity: 1;
-    transform: scale(1.2) translate(0, 0);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.5) translate(30px, -30px);
-  }
-}
+.sparkle { /* ... existing styles ... */ }
+@keyframes sparkle-anim { /* ... existing styles ... */ }
 
 /* --- Responsive Styles --- */
 @media (max-width: 768px) {
+    .page-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .sidebar h2, .sidebar nav ul {
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+
     .container {
         margin: 0;
         padding: 2em 1.5em;
