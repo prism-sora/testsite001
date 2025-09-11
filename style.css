@@ -47,3 +47,37 @@ p {
     text-indent: 1em; /* 段落の先頭を字下げ */
     margin-bottom: 0.8em;
 }
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+    .container {
+        /* スマートフォンでは左右の余白を減らし、画面いっぱいに近づける */
+        margin: 0;
+        padding: 2em 1.5em;
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%;
+    }
+
+    .header-image {
+        /* 画像の高さを調整 */
+        max-height: 250px;
+    }
+
+    h1 {
+        font-size: 2em; /* 見出しを少し小さく */
+    }
+
+    .subtitle {
+        font-size: 1em;
+        margin-bottom: 2em;
+    }
+
+    h2 {
+        font-size: 1.4em; /* 中見出しも調整 */
+    }
+
+    p {
+        text-indent: 0; /* スマートフォンでは字下げをなくす */
+    }
+}
