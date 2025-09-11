@@ -1,5 +1,5 @@
 body {
-    background-color: #f0f2f5;
+    background-color: #f0f8ff; /* 淡いブルー系の背景色 */
     color: #333;
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
     line-height: 1.8;
@@ -48,8 +48,8 @@ body {
 }
 
 .sidebar nav a:hover {
-  background-color: #003366;
-  color: #fff;
+  background-color: #eaf4ff; /* 淡いブルーの背景に */
+  color: #003366; /* 文字色を濃いブルーに */
 }
 
 .sidebar nav a::after {
@@ -62,7 +62,7 @@ body {
 
 .sidebar nav a:hover::after {
   transform: translateX(5px);
-  color: #fff;
+  color: #003366; /* アイコンの色も濃いブルーに */
 }
 
 .main-content {
