@@ -36,8 +36,6 @@ document.addEventListener('mousemove', function(e) {
   const duration = Math.random() * 0.5 + 0.4; // 0.4sから0.9s
   sparkle.style.animationDuration = duration + 's';
 
-  // 異なる方向に飛ぶように、アニメーションを少しだけ調整
-  const angle = Math.random() * 360;
   // この部分はCSSカスタムプロパティを使うとより柔軟ですが、今回はシンプルに
 
   document.body.appendChild(sparkle);
@@ -45,4 +43,26 @@ document.addEventListener('mousemove', function(e) {
   setTimeout(() => {
     sparkle.remove();
   }, duration * 1000);
+});
+
+// --- Scroll-in Animation ---
+const fadeInSections = document.querySelectorAll('.fade-in-section');
+
+const observerOptions = {
+  root: null, // ビューポートをルートとする
+  rootMargin: '0px',
+  threshold: 0.1 // 要素の10%が見えたら発火
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target); // 一度表示されたら監視を停止
+    }
+  });
+}, observerOptions);
+
+fadeInSections.forEach(section => {
+  observer.observe(section);
 });
