@@ -22,3 +22,27 @@ function shadow(e) {
 }
 
 container.addEventListener('mousemove', shadow);
+
+// --- Sparkle Effect ---
+document.addEventListener('mousemove', function(e) {
+  let sparkle = document.createElement('span');
+  sparkle.classList.add('sparkle');
+
+  // カーソル位置の少し右下に配置
+  sparkle.style.left = (e.pageX + 5) + 'px';
+  sparkle.style.top = (e.pageY + 5) + 'px';
+
+  // 異なるタイミングで消えるように、消滅時間をランダムにする
+  const duration = Math.random() * 0.5 + 0.4; // 0.4sから0.9s
+  sparkle.style.animationDuration = duration + 's';
+
+  // 異なる方向に飛ぶように、アニメーションを少しだけ調整
+  const angle = Math.random() * 360;
+  // この部分はCSSカスタムプロパティを使うとより柔軟ですが、今回はシンプルに
+
+  document.body.appendChild(sparkle);
+
+  setTimeout(() => {
+    sparkle.remove();
+  }, duration * 1000);
+});

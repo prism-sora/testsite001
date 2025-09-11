@@ -12,6 +12,8 @@ body {
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: relative; /* 影の位置決めの基準にする */
+    z-index: 1;
 }
 .header-image {
     width: 100%;
@@ -48,10 +50,32 @@ p {
     margin-bottom: 0.8em;
 }
 
+/* --- Sparkle Effect --- */
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  width: 8px;
+  height: 8px;
+  background: gold;
+  border-radius: 50%;
+  animation: sparkle-anim 0.7s forwards;
+  z-index: 9999;
+}
+
+@keyframes sparkle-anim {
+  0% {
+    opacity: 1;
+    transform: scale(1.2) translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5) translate(30px, -30px);
+  }
+}
+
 /* --- Responsive Styles --- */
 @media (max-width: 768px) {
     .container {
-        /* スマートフォンでは左右の余白を減らし、画面いっぱいに近づける */
         margin: 0;
         padding: 2em 1.5em;
         border-radius: 0;
@@ -60,12 +84,11 @@ p {
     }
 
     .header-image {
-        /* 画像の高さを調整 */
         max-height: 250px;
     }
 
     h1 {
-        font-size: 2em; /* 見出しを少し小さく */
+        font-size: 2em;
     }
 
     .subtitle {
@@ -74,10 +97,10 @@ p {
     }
 
     h2 {
-        font-size: 1.4em; /* 中見出しも調整 */
+        font-size: 1.4em;
     }
 
     p {
-        text-indent: 0; /* スマートフォンでは字下げをなくす */
+        text-indent: 0;
     }
 }
